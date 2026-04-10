@@ -1,54 +1,54 @@
-# ============================================================
-# Shri Ambika Sanskrit Mahavidyalaya – requirements.txt
-# Compatible with Python 3.9+ (tested on 3.9.6)
-# ============================================================
-
-# Core Django (4.2 LTS – compatible with Python 3.9+)
-Django>=4.2,<5.0
-
-# Django CMS 4.x
-django-cms>=4.1,<4.2
-django-sekizai>=4.0
-django-classy-tags>=4.0
-django-treebeard>=4.5
-djangocms-admin-style>=3.3
-djangocms-versioning>=1.4
-djangocms-alias>=2.2
-
-# CMS Plugins (correct package names)
-djangocms-text-ckeditor>=5.0
-djangocms-picture>=3.0
-djangocms-link>=3.1
-djangocms-file>=3.0
-djangocms-snippet>=3.0
-
-# File management
-django-filer>=3.0
-easy-thumbnails>=2.8
-
-# Translations / Bilingual (offline, no external API)
-django-parler>=2.3
-
-# Jinja2 template engine
-Jinja2>=3.1
-django-jinja>=2.10
-
-# Database
-psycopg2-binary>=2.9
-
-# Environment management
-django-environ>=0.11
-
-# Static files & media
-Pillow>=9.0
-whitenoise>=6.0
-
-# Forms
-django-crispy-forms>=2.0
-
-# Dev / utilities
-django-debug-toolbar>=4.0
+asgiref==3.11.1
+certifi==2026.2.25
+charset-normalizer==3.4.7
+click==8.1.8
+cssselect2==0.8.0
+Django==4.2.30
+django-classy-tags==4.1.0
+django-cms==4.1.10
+django-crispy-forms==2.5
+django-debug-toolbar==6.1.0
+django-environ==0.13.0
+django-filer==3.4.4
+django-formtools==2.5.1
+django-fsm==2.8.2
+django-jinja==2.11.0
+django-parler==2.3
+django-polymorphic==4.1.0
+django-sekizai==4.1.0
 django-tailwind-cli==2.21.1
-
-# WSGI Server (production)
-gunicorn>=21.0
+django-treebeard==4.7.1
+django-typer==3.4.0
+djangocms-admin-style==3.3.1
+djangocms-alias==2.0.5
+djangocms-attributes-field==4.1.2
+djangocms-file==3.0.1
+djangocms-history==2.2.3
+djangocms-link==5.1.1
+djangocms-picture==4.1.1
+djangocms-snippet==5.0.2
+djangocms-text-ckeditor==5.1.7
+djangocms-versioning==2.4.0
+easy-thumbnails==2.10.1
+gunicorn==23.0.0
+html5lib==1.1
+idna==3.11
+Jinja2==3.1.6
+lxml==6.0.3
+MarkupSafe==3.0.3
+packaging==26.0
+pillow==11.3.0
+psycopg2-binary==2.9.11
+reportlab==4.4.10
+requests==2.32.5
+semver==3.0.4
+shellingham==1.5.4
+six==1.17.0
+sqlparse==0.5.5
+svglib==1.5.1
+tinycss2==1.4.0
+typer-slim==0.20.1
+typing_extensions==4.15.0
+urllib3==2.6.3
+webencodings==0.5.1
+whitenoise==6.11.0
