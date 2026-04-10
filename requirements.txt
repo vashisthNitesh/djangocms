@@ -12,6 +12,8 @@ django-sekizai>=4.0
 django-classy-tags>=4.0
 django-treebeard>=4.5
 djangocms-admin-style>=3.3
+djangocms-versioning>=1.4
+djangocms-alias>=2.2
 
 # CMS Plugins (correct package names)
 djangocms-text-ckeditor>=5.0
