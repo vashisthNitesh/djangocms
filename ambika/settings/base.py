@@ -24,6 +24,9 @@ env = environ.Env(
 # ─────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
+# Read the .env file securely from the root folder
+env.read_env(BASE_DIR / ".env")
+
 # ─────────────────────────────────────────────
 # Security
 # ─────────────────────────────────────────────
