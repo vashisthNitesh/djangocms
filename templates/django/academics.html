@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static cms_tags %}
+
+{% block title %}Explore Curriculum | {{ SCHOOL_NAME_EN }}{% endblock %}
+
+{% block content %}
+<main class="flex-1 relative z-10 pt-20">
+    <div class="section-container">
+        
+        <div class="text-center mb-16 animate-slide-up">
+            <span class="section-tag bg-accent-500 text-slate-900 border-accent-400">Our Curriculum</span>
+            <h1 class="hero-title text-slate-900 drop-shadow-none mb-6">Explore <span class="gradient-text-accent">Mahavidyalaya</span></h1>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                Discover the deep integration of authentic Vedic scriptures with modern academic disciplines, creating enlightened scholars for the future.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            
+            {# Veda Vibhag #}
+            <div class="card-premium group relative overflow-hidden bg-slate-900 border-none shadow-2xl hover:shadow-accent-500/20">
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl group-hover:bg-accent-500/20 transition-all duration-700"></div>
+                <h3 class="text-3xl text-white font-serif mb-4 flex items-center gap-4">
+                    <span class="text-accent-500">I.</span> Veda Vibhag
+                </h3>
+                <p class="text-slate-200 leading-relaxed mb-6">
+                    Meticulous and rigorous oral transmission of ancient Vedic texts. Students are trained in precise intonation, metrics, and rituals.
+                </p>
+                <ul class="space-y-3 text-slate-100 font-medium">
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> Rigveda Samhita</li>
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> Shukla Yajurveda</li>
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> Samaveda Chanting</li>
+                </ul>
+            </div>
+
+            {# Vyakaran Vibhag #}
+            <div class="card-premium group relative overflow-hidden bg-white hover:border-accent-500 transition-colors duration-500">
+                <h3 class="text-3xl text-slate-900 font-serif mb-4 flex items-center gap-4">
+                    <span class="text-accent-500">II.</span> Vyakaran Vibhag
+                </h3>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    Mastery of Paninian grammar, enabling students to compose, dissect, and articulate complex philosophical concepts flawlessly.
+                </p>
+                <ul class="space-y-3 text-slate-700 font-medium">
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> Siddhanta Kaumudi</li>
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> Patanjali Mahabhashya</li>
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> Navya Nyaya Logic</li>
+                </ul>
+            </div>
+            
+            {# Sahitya & Jyotish #}
+            <div class="card-premium group relative overflow-hidden bg-white hover:border-accent-500 transition-colors duration-500">
+                <h3 class="text-3xl text-slate-900 font-serif mb-4 flex items-center gap-4">
+                    <span class="text-accent-500">III.</span> Sahitya & Jyotish
+                </h3>
+                <p class="text-slate-600 leading-relaxed mb-6">
+                    Immersion into traditional Indian astrology, astronomy, and poetic literature creating culturally rooted polymaths.
+                </p>
+                <ul class="space-y-3 text-slate-700 font-medium">
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> Siddhanta Shiromani</li>
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> Panchanga Ganita</li>
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> Kavya Prakasha</li>
+                </ul>
+            </div>
+
+            {# Modern Sciences #}
+            <div class="card-premium group relative overflow-hidden bg-slate-900 border-none shadow-2xl hover:shadow-accent-500/20">
+                <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl group-hover:bg-accent-500/20 transition-all duration-700"></div>
+                <h3 class="text-3xl text-white font-serif mb-4 flex items-center gap-4">
+                    <span class="text-accent-500">IV.</span> Modern Sciences
+                </h3>
+                <p class="text-slate-200 leading-relaxed mb-6">
+                    Ensuring our Rishi Kumars are equipped for the future with state-of-the-art modern academic integration.
+                </p>
+                <ul class="space-y-3 text-slate-100 font-medium">
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> Computer Science & IT</li>
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> English Literature</li>
+                    <li class="flex items-center gap-3"><span class="text-accent-500">→</span> Advanced Mathematics</li>
+                </ul>
+            </div>
+
+        </div>
+        
+        <div class="mt-20 text-center animate-slide-up" style="animation-delay: 0.3s;">
+            <a href="{% url 'school:apply' %}" class="btn-premium px-12 py-5 text-xl font-black tracking-wide">
+                Join The Gurukul →
+            </a>
+        </div>
+        
+    </div>
+</main>
+{% endblock %}

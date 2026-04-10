@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Apply Now | {{ SCHOOL_NAME_EN }}{% endblock %}
+
+{% block content %}
+<main class="flex-1 relative z-10 pt-20 pb-24">
+    <div class="section-container">
+        
+        <div class="text-center mb-16 animate-slide-up">
+            <span class="section-tag bg-accent-500 text-slate-900 border-accent-400">Admissions 2026</span>
+            <h1 class="hero-title text-slate-900 drop-shadow-none mb-6">Apply to <span class="gradient-text-accent">Gurukul</span></h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto font-light leading-relaxed">
+                Take the first step towards an authentic Vedic education. Please fill out your details below to request a call from our administrative Acharya.
+            </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto bg-white rounded-[3rem] p-10 md:p-14 shadow-2xl border border-slate-100 animate-slide-up relative overflow-hidden" style="animation-delay: 0.2s;">
+            
+            <div class="absolute -right-24 -top-24 text-[15rem] font-serif text-slate-900/5 select-none pointer-events-none -rotate-12">ॐ</div>
+
+            <form action="#" method="POST" class="relative z-10 space-y-8">
+                {% csrf_token %}
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <label class="block text-sm font-bold tracking-widest text-slate-500 uppercase mb-2">Student's Full Name</label>
+                        <input type="text" class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-accent-500 transition-all font-medium text-slate-900 placeholder:text-slate-400" placeholder="e.g. Yajnavalkya Sharma" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold tracking-widest text-slate-500 uppercase mb-2">Date of Birth</label>
+                        <input type="date" class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-accent-500 transition-all font-medium text-slate-900 text-slate-400" required>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <label class="block text-sm font-bold tracking-widest text-slate-500 uppercase mb-2">Guardian's Name</label>
+                        <input type="text" class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-accent-500 transition-all font-medium text-slate-900 placeholder:text-slate-400" placeholder="Father or Mother" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold tracking-widest text-slate-500 uppercase mb-2">Contact Number</label>
+                        <input type="tel" class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-accent-500 transition-all font-medium text-slate-900 placeholder:text-slate-400" placeholder="+91 XXXXX XXXXX" required>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold tracking-widest text-slate-500 uppercase mb-2">Previous Education (Standard)</label>
+                    <select class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-accent-500 transition-all font-medium text-slate-900 cursor-pointer">
+                        <option>Completed 8th Standard (Applying for 9th)</option>
+                        <option>Completed 10th Standard (Applying for 11th)</option>
+                        <option>Other / Vedic Background</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold tracking-widest text-slate-500 uppercase mb-2">Why do you wish to join?</label>
+                    <textarea rows="4" class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-accent-500 transition-all font-medium text-slate-900 placeholder:text-slate-400 resize-none" placeholder="Briefly explain your interest in Vedic studies..."></textarea>
+                </div>
+
+                <div class="pt-6 text-center">
+                    <button type="button" class="btn-premium w-full md:w-auto px-16 py-5 text-xl cursor-default" onclick="alert('Submission simulated successfully! Detailed backend views can be wired later.')">
+                        Submit Application
+                    </button>
+                    <p class="text-xs text-slate-400 mt-6 max-w-md mx-auto leading-relaxed">
+                        By submitting this form, you request our admissions office to contact you. A formal interview of the student and parents will follow.
+                    </p>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</main>
+{% endblock %}

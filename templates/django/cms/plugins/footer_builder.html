@@ -1,0 +1,11 @@
+{% load cms_tags %}
+<footer class="footer mt-auto bg-slate-900">
+  <div class="max-w-7xl mx-auto w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+      {% for plugin in instance.get_children %}
+        {% render_plugin plugin %}
+      {% endfor %}
+    </div>
+  </div>
+</footer>
+

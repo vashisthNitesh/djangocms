@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ post.title }} | {{ SCHOOL_NAME_EN }}
+{% endblock %}
+
+{% block content %}
+
+{# Page hero #}
+<div class="page-hero">
+  <div class="relative z-10 text-white text-center px-4 max-w-3xl mx-auto">
+    <p class="text-amber-200 text-sm mb-3">🗓 {{ post.publish_date|date:"d M Y" }}</p>
+    <h1 class="text-3xl md:text-4xl font-bold leading-snug" style="font-family:'Yatra One','Noto Serif Gujarati',serif;">
+      {{ post.title }}
+    </h1>
+  </div>
+</div>
+
+{# Article #}
+<section class="py-16 px-4">
+  <div class="max-w-3xl mx-auto">
+
+    {# Breadcrumb #}
+    <div class="breadcrumb mb-8">
+      <a href="/" class="hover:text-saffron-700">
+        {% if request.LANGUAGE_CODE == 'gu' %}હોમ{% else %}Home{% endif %}
+      </a>
+      <span>›</span>
+      <a href="/news/" class="hover:text-saffron-700">
+        {% if request.LANGUAGE_CODE == 'gu' %}સમાચાર{% else %}News{% endif %}
+      </a>
+      <span>›</span>
+      <span class="text-gray-500 truncate max-w-xs">
+        {{ post.title|truncatechars:40 }}
+      </span>
+    </div>
+
+    {# Cover image #}
+    {% if post.cover_image %}
+      <img src="{{ post.cover_image.url }}"
+           alt="{{ post.title }}"
+           class="w-full rounded-2xl shadow-card mb-8 object-cover max-h-96" />
+    {% endif %}
+
+    {# Article body #}
+    <div class="prose prose-lg max-w-none
+                prose-headings:text-maroon-700 prose-headings:font-serif
+                prose-a:text-saffron-600 prose-a:no-underline hover:prose-a:underline
+                prose-strong:text-maroon-700
+                prose-img:rounded-xl prose-img:shadow-card">
+      {{ post.body|safe }}
+    </div>
+
+    {# Back link #}
+    <div class="mt-12 pt-8 border-t border-saffron-100">
+      <a href="/news/" class="btn-outline">
+        ← {% if request.LANGUAGE_CODE == 'gu' %}પાછળ{% else %}Back to News{% endif %}
+      </a>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

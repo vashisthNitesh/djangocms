@@ -1,0 +1,65 @@
+# Gujarati translations for Ambika Mahavidyalaya
+msgid ""
+msgstr ""
+"Project-Id-Version: Ambika Mahavidyalaya 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-09 00:00+0530\n"
+"PO-Revision-Date: 2026-04-09 00:00+0530\n"
+"Last-Translator: Admin\n"
+"Language-Team: Gujarati\n"
+"Language: gu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "English"
+msgstr "English"
+
+msgid "Home"
+msgstr "હોમ"
+
+msgid "About Us"
+msgstr "અમારા વિશે"
+
+msgid "Academics"
+msgstr "અભ્યાસક્રમ"
+
+msgid "Admissions"
+msgstr "પ્રવેશ"
+
+msgid "Gallery"
+msgstr "ગૅલેરી"
+
+msgid "News & Events"
+msgstr "સmachAR અને ks̈ryakram"
+
+msgid "Facilities"
+msgstr "સuvid̰hā"
+
+msgid "Contact Us"
+msgstr "સampark"
+
+msgid "Admissions Open"
+msgstr "પ્રvesh khu&#x200D;llo"
+
+msgid "Apply Now"
+msgstr "Ave&#x200D;l"
+
+msgid "Read More"
+msgstr "Vad&#x200D;hu Van&#x200D;cho"
+
+msgid "Send Message"
+msgstr "Sam&#x200D;des Mok&#x200D;lo"
+
+msgid "Your full name / તમારું નામ"
+msgstr "Tam&#x200D;aru Na&#x200D;m"
+
+msgid "Mobile number / મોબાઈલ નંબર"
+msgstr "Mob&#x200D;ile Namb&#x200D;ar"
+
+msgid "Subject / વિષય"
+msgstr "Vis&#x200D;hay"
+
+msgid "Your message / તમારો સંદેશ"
+msgstr "Tam&#x200D;aro Sam&#x200D;des"

@@ -1,0 +1,35 @@
+{% load cms_tags menu_tags %}
+<header class="relative w-full" id="premium-header">
+  {# Navigation Layer #}
+  <nav class="navbar w-full flex items-center justify-between px-4 md:px-8 py-4 transition-all duration-500 bg-transparent shadow-sm" id="main-nav">
+    <div class="flex items-center gap-4">
+      {% if instance.logo %}
+        <img src="{{ instance.logo.url }}" alt="Logo" class="h-14 w-auto drop-shadow-md">
+      {% endif %}
+      <div class="hidden md:block">
+        <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent-500 to-accent-600 tracking-tight drop-shadow-sm">Shri Ambika</h1>
+      </div>
+    </div>
+    
+    <div class="flex items-center gap-8">
+      {# CMS Menu Tags #}
+      <div class="hidden md:flex items-center gap-6">
+        {% show_menu 0 100 100 100 "cms/nav_menu.html" %}
+      </div>
+      <a href="{% url 'school:apply' %}" class="btn-premium py-2 md:py-3 px-6 shadow-lg shadow-accent-500/30 font-bold tracking-wide">Apply Now</a>
+    </div>
+  </nav>
+
+  {# Hero Carousel Layer #}
+  <div class="w-full h-[75vh] md:h-[85vh] relative z-10 overflow-hidden">
+    <div class="swiper header-swiper h-full">
+
+      <div class="swiper-wrapper">
+        {% for plugin in instance.get_children %}
+          {% render_plugin plugin %}
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination !bottom-8"></div>
+    </div>
+  </div>
+</header>

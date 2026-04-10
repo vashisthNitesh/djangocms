@@ -1,0 +1,52 @@
+# ============================================================
+# Shri Ambika Sanskrit Mahavidyalaya – requirements.txt
+# Compatible with Python 3.9+ (tested on 3.9.6)
+# ============================================================
+
+# Core Django (4.2 LTS – compatible with Python 3.9+)
+Django>=4.2,<5.0
+
+# Django CMS 4.x
+django-cms>=4.1,<4.2
+django-sekizai>=4.0
+django-classy-tags>=4.0
+django-treebeard>=4.5
+djangocms-admin-style>=3.3
+
+# CMS Plugins (correct package names)
+djangocms-text-ckeditor>=5.0
+djangocms-picture>=3.0
+djangocms-link>=3.1
+djangocms-file>=3.0
+djangocms-snippet>=3.0
+
+# File management
+django-filer>=3.0
+easy-thumbnails>=2.8
+
+# Translations / Bilingual (offline, no external API)
+django-parler>=2.3
+
+# Jinja2 template engine
+Jinja2>=3.1
+django-jinja>=2.10
+
+# Database
+psycopg2-binary>=2.9
+
+# Environment management
+django-environ>=0.11
+
+# Static files & media
+Pillow>=9.0
+whitenoise>=6.0
+
+# Forms
+django-crispy-forms>=2.0
+
+# Dev / utilities
+django-debug-toolbar>=4.0
+django-tailwind-cli==2.21.1
+
+# WSGI Server (production)
+gunicorn>=21.0

@@ -1,0 +1,17 @@
+{% load cms_tags %}
+<section class="section-container bg-slate-50 rounded-[4rem]">
+  <div class="section-header">
+    <span class="section-tag">Testimonials</span>
+    <h2 class="text-slate-900">{{ instance.title|default:"Voice of Students & Parents" }}</h2>
+    <div class="w-20 h-1 bg-accent-500 mx-auto mt-6 rounded-full"></div>
+  </div>
+  
+  <div class="swiper testimonial-swiper max-w-4xl mx-auto mt-12 overflow-hidden">
+    <div class="swiper-wrapper">
+      {% for plugin in instance.get_children %}
+        {% render_plugin plugin %}
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination !-bottom-2"></div>
+  </div>
+</section>

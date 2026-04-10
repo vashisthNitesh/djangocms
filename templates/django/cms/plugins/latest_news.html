@@ -1,0 +1,14 @@
+{% load cms_tags %}
+<section class="section-container">
+  <div class="section-header">
+    <span class="section-tag">Updates</span>
+    <h2 class="text-slate-900">{{ instance.title|default:"Latest News & Events" }}</h2>
+    <div class="w-20 h-1 bg-accent-500 mx-auto mt-6 rounded-full"></div>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-16">
+    {% for plugin in instance.get_children %}
+      {% render_plugin plugin %}
+    {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {% if request.LANGUAGE_CODE == 'gu' %}સમાચાર & કાર્યક્રમ | {{ SCHOOL_NAME_GU }}
+  {% else %}News & Events | {{ SCHOOL_NAME_EN }}{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="page-hero">
+  <div class="relative z-10 text-white text-center px-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-3" style="font-family:'Yatra One',serif;">
+      {% if request.LANGUAGE_CODE == 'gu' %}સમાચાર & કાર્યક્રમ{% else %}News &amp; Events{% endif %}
+    </h1>
+    <p class="text-amber-100">{{ SCHOOL_NAME_GU }}</p>
+  </div>
+</div>
+
+<section class="py-16 px-4 max-w-7xl mx-auto">
+
+  {% if posts %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% for post in posts %}
+        <article class="news-card">
+          {% if post.cover_image %}
+            <div class="relative overflow-hidden h-52">
+              <img src="{{ post.cover_image.url }}"
+                   alt="{{ post.title }}"
+                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div class="absolute top-3 left-3">
+                <span class="bg-saffron-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  🗓 {{ post.publish_date|date:"d M Y" }}
+                </span>
+              </div>
+            </div>
+          {% else %}
+            <div class="h-52 bg-gradient-to-br from-saffron-100 to-gold-50 flex items-center justify-center text-6xl relative">
+              📰
+              <span class="absolute top-3 left-3 bg-saffron-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                🗓 {{ post.publish_date|date:"d M Y" }}
+              </span>
+            </div>
+          {% endif %}
+
+          <div class="news-card-body">
+            {% if post.is_featured %}
+              <span class="inline-block bg-gold-100 text-gold-700 text-xs font-bold px-2 py-1 rounded-full mb-2">
+                ⭐ Featured
+              </span>
+            {% endif %}
+
+            <a href="{{ post.get_absolute_url }}" class="news-title block">
+              {{ post.title }}
+            </a>
+
+            {% if post.excerpt %}
+              <p class="text-gray-500 text-sm flex-1 leading-relaxed">
+                {{ post.excerpt|truncatechars:150 }}
+              </p>
+            {% endif %}
+
+            <a href="{{ post.get_absolute_url }}"
+               class="mt-4 inline-flex items-center gap-1 text-saffron-600 text-sm font-semibold hover:text-saffron-800 transition-colors">
+              {% if request.LANGUAGE_CODE == 'gu' %}વધુ વાંચો{% else %}Read More{% endif %} →
+            </a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="text-center py-20">
+      <div class="text-8xl mb-6">📰</div>
+      <h3 class="text-2xl font-bold text-maroon-600 mb-3" style="font-family:'Yatra One',serif;">
+        {% if request.LANGUAGE_CODE == 'gu' %}ટૂંક સમયમાં{% else %}Coming Soon{% endif %}
+      </h3>
+      <p class="text-gray-500">
+        {% if request.LANGUAGE_CODE == 'gu' %}
+          એડમિન પેનલથી સમાચાર ઉમેરો
+        {% else %}
+          News posts will appear here. Add them via the Admin Panel.
+        {% endif %}
+      </p>
+    </div>
+  {% endif %}
+
+</section>
+{% endblock %}

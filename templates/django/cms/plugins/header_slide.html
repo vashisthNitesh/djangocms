@@ -1,0 +1,15 @@
+<div class="swiper-slide h-full relative">
+  <img src="{{ instance.image.url }}" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-slate-900/40"></div>
+  <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto z-10">
+    <h2 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1] animate-fade-in">{{ instance.title|safe }}</h2>
+    {% if instance.subtitle %}
+      <p class="text-lg md:text-xl text-white/80 max-w-2xl mb-10 font-light tracking-wide animate-slide-up">{{ instance.subtitle|safe }}</p>
+    {% endif %}
+    {% if instance.btn_text %}
+      <div class="mt-4 animate-slide-up">
+        <a href="{{ instance.btn_url }}" class="btn-premium">{{ instance.btn_text }}</a>
+      </div>
+    {% endif %}
+  </div>
+</div>

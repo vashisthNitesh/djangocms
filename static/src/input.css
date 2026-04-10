@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   AMBIKA MAHAVIDYALAYA - Modern Premium Design System
+   Slate 900 . Amber 500 . Pearl White . Slate 50
+   ===================================================== */
+
+@layer base {
+  :root {
+    --color-slate-50: #F8FAFC;
+    --color-slate-100: #F1F5F9;
+    --color-slate-200: #E2E8F0;
+    --color-slate-800: #1E293B;
+    --color-slate-900: #0F172A;
+
+    --color-accent-500: #F59E0B; /* Amber/Gold */
+    --color-accent-600: #D97706;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', 'Noto Sans Gujarati', sans-serif;
+  }
+
+  body {
+    @apply text-slate-800 antialiased bg-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    @apply font-bold tracking-tight text-slate-900;
+  }
+
+  h1 { @apply text-4xl md:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+
+  a {
+    @apply transition-all duration-300;
+  }
+}
+
+@layer components {
+  /* -- Premium Navbar -- */
+  .navbar {
+    @apply fixed top-0 left-0 right-0 z-50 transition-all duration-700 h-[4.5rem] md:h-20 flex items-center;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+  }
+
+  .navbar.scrolled {
+    @apply shadow-sm bg-white/95 backdrop-blur-xl border-b-slate-100;
+  }
+
+  .nav-link {
+    @apply text-slate-700 font-bold px-4 py-2 rounded-xl text-sm transition-all duration-300 relative inline-block;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-1 left-4 right-4 h-0.5 bg-accent-500 scale-x-0 transition-transform duration-300 origin-center;
+  }
+
+  .nav-link:hover {
+    @apply text-slate-900 bg-slate-50;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100;
+  }
+
+  #main-nav.bg-transparent {
+    background: transparent !important;
+    border-bottom: 1px solid transparent;
+  }
+
+  #main-nav.bg-transparent .nav-link {
+    @apply text-white/90;
+  }
+  
+  #main-nav.bg-transparent .nav-link:hover {
+    @apply text-white bg-white/10;
+  }
+
+  #main-nav.bg-transparent .nav-link::after {
+    @apply bg-white;
+  }
+
+  /* -- Modern Hero -- */
+  .hero-slide {
+    @apply relative w-full h-full overflow-hidden bg-slate-900;
+  }
+
+  .hero-overlay {
+    @apply absolute inset-0;
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.8) 100%);
+  }
+
+  .hero-content {
+    @apply absolute inset-0 flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto z-20;
+  }
+
+  .hero-title {
+    @apply text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg;
+  }
+
+  .hero-subtitle {
+    @apply text-lg md:text-2xl text-white/90 max-w-2xl mb-10 font-light tracking-wide drop-shadow-md;
+  }
+
+  /* -- Buttons -- */
+  .btn-premium {
+    @apply inline-flex items-center gap-3 px-8 py-4 rounded-full
+           bg-accent-500 text-white font-bold transition-all duration-500 shadow-xl shadow-accent-500/20
+           hover:bg-slate-900 hover:shadow-2xl hover:shadow-slate-900/30 hover:-translate-y-1 active:scale-95;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center gap-3 px-8 py-4 rounded-full
+           border-2 border-white/40 text-white font-bold transition-all duration-500
+           hover:bg-white hover:text-slate-900 hover:scale-105 active:scale-95;
+  }
+
+  /* -- Cards & Sections -- */
+  .section-container {
+    @apply py-12 md:py-16 px-6 max-w-7xl mx-auto;
+  }
+
+  .section-header {
+    @apply text-center mb-20 max-w-3xl mx-auto;
+  }
+
+  .section-tag {
+    @apply inline-block px-5 py-2 rounded-full bg-accent-50 text-accent-600
+           text-xs font-black uppercase tracking-widest mb-6 shadow-sm border border-accent-100;
+  }
+
+  .card-premium {
+    @apply bg-white border border-slate-100 rounded-[2.5rem] p-10 shadow-sm
+           transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200/50 hover:-translate-y-2 hover:border-slate-200;
+  }
+
+  /* -- Stats -- */
+  .stat-card {
+    @apply flex flex-col items-center text-center p-8 relative;
+  }
+
+  .stat-value {
+    @apply text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70 mb-2 tabular-nums tracking-tighter drop-shadow-md;
+  }
+
+  .stat-label {
+    @apply text-accent-400 text-xs font-bold uppercase tracking-[0.25em];
+  }
+
+  /* -- Footer -- */
+  .footer {
+    @apply bg-slate-900 py-12 md:py-16 px-6 text-white relative overflow-hidden;
+  }
+
+  .footer-link {
+    @apply text-white/50 hover:text-accent-500 transition-colors font-medium text-sm;
+  }
+
+  /* -- Lightbox Overrides -- */
+  #lightbox-overlay.active {
+    @apply opacity-100 pointer-events-auto shadow-2xl;
+  }
+}
+
+@layer utilities {
+  .text-glass {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white/80 to-white/60;
+  }
+  .gradient-text-accent {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-500 to-accent-600;
+  }
+}
+
+
+/* Swiper Overrides */
+.swiper-pagination-bullet {
+  @apply bg-white/20 opacity-100 !important;
+  width: 40px !important;
+  height: 3px !important;
+  border-radius: 4px !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-white !important;
+}

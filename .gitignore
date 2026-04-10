@@ -1,0 +1,30 @@
+# .gitignore for Ambika Mahavidyalaya Django CMS project
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.env
+db.sqlite3
+*.log
+staticfiles/
+media/
+node_modules/
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+*.egg-info/
+dist/
+build/
+
+# Ignore custom task scripts
+populate_cms*.py
+check_plugins.py
+fix_plugins.py
+list_plugins.py
+build_error.txt

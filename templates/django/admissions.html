@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Admissions | {{ SCHOOL_NAME_EN }}{% endblock %}
+
+{% block content %}
+<main class="flex-1 relative z-10 pt-20 pb-24">
+    <div class="section-container">
+        
+        <div class="text-center mb-16 animate-slide-up">
+            <span class="section-tag bg-accent-500 text-slate-900 border-accent-400">Join the Legacy</span>
+            <h1 class="hero-title text-slate-900 drop-shadow-none mb-6">Admissions <span class="gradient-text-accent">Process</span></h1>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                Shri Ambika Sanskrit Mahavidyalaya admits dedicated students eager to embrace a rigorous traditional Vedic lifestyle. We have strict intake limits to ensure personalized attention for every single Rishi Kumar.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
+            
+            {# Criteria #}
+            <div class="space-y-8 animate-slide-up" style="animation-delay: 0.1s;">
+                
+                <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 hover:border-accent-500 transition-colors">
+                    <h3 class="text-2xl font-serif text-slate-900 mb-4 items-center flex gap-3">
+                        <span class="text-3xl text-accent-500">❖</span> Eligibility Requirements
+                    </h3>
+                    <ul class="space-y-4 text-slate-600 text-lg leading-relaxed">
+                        <li class="flex items-start gap-4">
+                            <span class="text-accent-500 font-bold">1.</span>
+                            <span>For Standard 9: Must have successfully completed 8th grade. Age strictly between 13-15 years.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-accent-500 font-bold">2.</span>
+                            <span>Absolute willingness to follow the Gurukul's lifestyle, including pure vegetarianism, early morning rising (Brahma Muhurta), and daily Sandhyavandanam.</span>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-accent-500 font-bold">3.</span>
+                            <span>Prior knowledge of basic Sanskrit chanting is highly preferred but not strictly mandatory.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900 p-10 rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                    <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-accent-500/20 rounded-full blur-3xl group-hover:bg-accent-500/40 transition-colors"></div>
+                    <h3 class="text-3xl font-serif text-white mb-4 relative z-10">Application Timeline</h3>
+                    <div class="space-y-4 text-white/80 relative z-10">
+                        <div class="flex justify-between border-b border-white/10 pb-4">
+                            <span class="font-bold">Forms Open</span>
+                            <span class="text-accent-400">Starts Chaitra Navaratri</span>
+                        </div>
+                        <div class="flex justify-between border-b border-white/10 pb-4">
+                            <span class="font-bold">Interviews</span>
+                            <span class="text-accent-400">Throughout May</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-bold">Session Start</span>
+                            <span class="text-accent-400">June 1st Week</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            {# Interview & Registration #}
+            <div class="card-premium animate-slide-up" style="animation-delay: 0.2s;">
+                <h3 class="text-3xl font-serif text-slate-900 mb-6">The Selection Interview</h3>
+                <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                    Our admission is not determined solely by previous academic marks. The Mahavidyalaya conducts an in-person interview with both the aspiring student and the parents/guardians.
+                </p>
+                <p class="text-slate-600 text-lg leading-relaxed mb-10">
+                    The Principal Acharya evaluates the student's moral aptitude, discipline, retention capability (Smriti), and true passion for Sanskrit. Submitting an application form is merely the first step.
+                </p>
+                
+                <h4 class="font-bold text-slate-900 mb-4 tracking-widest uppercase text-sm">Required Documents at Interview</h4>
+                <div class="grid grid-cols-2 gap-4 mb-10 text-slate-600">
+                    <div class="bg-slate-50 p-4 rounded-xl text-center font-medium">Previous Marksheet</div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center font-medium">Aadhar Card</div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center font-medium">Passport Photos</div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center font-medium">Transfer Cert. (LC)</div>
+                </div>
+
+                <a href="{% url 'school:apply' %}" class="btn-premium w-full justify-center px-10 py-5 text-xl font-black">
+                    Proceed to Application Form →
+                </a>
+            </div>
+
+        </div>
+    </div>
+</main>
+{% endblock %}

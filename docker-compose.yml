@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       ambika_db
+      POSTGRES_USER:     ambika_user
+      POSTGRES_PASSWORD: ambika_secure_pass_2026
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ambika_user -d ambika_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DJANGO_SETTINGS_MODULE: ambika.settings.production
+      SECRET_KEY:      "change-me-in-production-!very-secret-key!"
+      DEBUG:           "False"
+      DATABASE_URL:    "postgresql://ambika_user:ambika_secure_pass_2026@db:5432/ambika_db"
+      ALLOWED_HOSTS:   "localhost,127.0.0.1"
+      DEFAULT_FROM_EMAIL: "noreply@ambika.edu"
+      CONTACT_EMAIL:   "shriambika1@gmail.com"
+    volumes:
+      - media_data:/app/media
+      - static_data:/app/staticfiles
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "
+        python manage.py migrate --noinput &&
+        python manage.py compilemessages &&
+        gunicorn ambika.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 60
+      "
+
+volumes:
+  postgres_data:
+  media_data:
+  static_data:

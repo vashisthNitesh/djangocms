@@ -1,0 +1,34 @@
+<section class="hero-slide">
+  <div class="swiper hero-swiper h-full">
+    <div class="swiper-wrapper">
+      {% if slides %}
+        {% for slide in slides %}
+          <div class="swiper-slide h-full relative">
+            <img src="{{ slide.image.url }}" class="absolute inset-0 w-full h-full object-cover">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <span class="text-accent-500 font-bold uppercase tracking-[0.4em] text-xs mb-6 animate-slide-down">Welcome to Ambika</span>
+              <h1 class="hero-title animate-fade-in">{{ slide.title|safe }}</h1>
+              {% if slide.subtitle %}
+                <p class="hero-subtitle animate-slide-up">{{ slide.subtitle|safe }}</p>
+              {% endif %}
+              {% if slide.button_text %}
+                <div class="mt-8 animate-slide-up">
+                  <a href="{{ slide.button_url }}" class="btn-premium">
+                    {{ slide.button_text }}
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="swiper-slide h-full flex items-center justify-center bg-slate-800 text-white/20 text-4xl">
+           Please add Hero Slides in the Admin
+        </div>
+      {% endif %}
+    </div>
+    <div class="swiper-pagination !bottom-12"></div>
+  </div>
+</section>

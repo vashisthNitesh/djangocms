@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {% if request.LANGUAGE_CODE == 'gu' %}ગેલેરી | {{ SCHOOL_NAME_GU }}
+  {% else %}Gallery | {{ SCHOOL_NAME_EN }}{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="page-hero">
+  <div class="relative z-10 text-white text-center px-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-3" style="font-family:'Yatra One',serif;">
+      {% if request.LANGUAGE_CODE == 'gu' %}ફોટો ગેલેરી{% else %}Photo Gallery{% endif %}
+    </h1>
+    <p class="text-amber-100">{{ SCHOOL_NAME_GU }}</p>
+  </div>
+</div>
+
+<section class="py-16 px-4 max-w-7xl mx-auto">
+
+  {# Filter buttons #}
+  <div class="flex flex-wrap justify-center gap-3 mb-10">
+    <button data-filter="all"
+            class="px-5 py-2 rounded-full border-2 text-sm font-semibold transition-all
+                   bg-saffron-500 text-white border-saffron-500">
+      {% if request.LANGUAGE_CODE == 'gu' %}બધા{% else %}All{% endif %}
+    </button>
+    {% for cat in categories %}
+      <button data-filter="{{ cat.pk }}"
+              class="px-5 py-2 rounded-full border-2 border-saffron-300 text-saffron-700 text-sm font-semibold
+                     hover:bg-saffron-500 hover:text-white hover:border-saffron-500 transition-all">
+        {{ cat.name }}
+      </button>
+    {% endfor %}
+  </div>
+
+  {# Gallery grid #}
+  {% if all_items %}
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
+      {% for item in all_items %}
+        <div class="gallery-item"
+             data-src="{{ item.image.url }}"
+             data-caption="{{ item.caption|default:'' }}"
+             data-category="{{ item.category_id|default:'' }}">
+          <img src="{{ item.image.url }}"
+               alt="{{ item.caption|default:'' }}"
+               loading="lazy" />
+          <div class="gallery-overlay">
+            <div class="text-center text-white">
+              <div class="text-3xl mb-2">🔍</div>
+              {% if item.caption %}
+                <p class="text-sm px-4">{{ item.caption }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    {# Placeholder when no images uploaded #}
+    <div class="text-center py-20">
+      <div class="text-8xl mb-6">📸</div>
+      <h3 class="text-2xl font-bold text-maroon-600 mb-3" style="font-family:'Yatra One',serif;">
+        {% if request.LANGUAGE_CODE == 'gu' %}ટૂંક સમયમાં{% else %}Coming Soon{% endif %}
+      </h3>
+      <p class="text-gray-500">
+        {% if request.LANGUAGE_CODE == 'gu' %}
+          ગેલેરી ફોટા ટૂંક સમયમાં એડમિન પેનલથી ઉમેરવામાં આવશે.
+        {% else %}
+          Gallery photos will be added via the Admin Panel. Check back soon!
+        {% endif %}
+      </p>
+    </div>
+  {% endif %}
+
+</section>
+{% endblock %}

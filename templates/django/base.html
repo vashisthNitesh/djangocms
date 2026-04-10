@@ -1,0 +1,96 @@
+{% load static cms_tags sekizai_tags i18n menu_tags %}
+<!doctype html>
+<html lang="{{ request.LANGUAGE_CODE }}" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  {# Custom SEO variables from Django CMS #}
+  {% page_attribute "page_title" as cms_page_title %}
+  {% page_attribute "meta_description" as cms_meta_desc %}
+
+  <title>{% block title %}{% if cms_page_title %}{{ cms_page_title }} | {% endif %}{{ SCHOOL_NAME_EN }}{% endblock %}</title>
+  <meta name="description" content="{% block meta_desc %}{% if cms_meta_desc %}{{ cms_meta_desc }}{% else %}{{ SCHOOL_TAGLINE_EN }} — {{ SCHOOL_NAME_EN }}, Ambaji, Gujarat{% endif %}{% endblock %}" />
+  <meta name="keywords" content="Sanskrit school Ambaji, Sanskrit Mahavidyalaya, Shri Ambika, Gujarati school, Rishi Kumar, Vedic Education" />
+  <meta name="author" content="{{ SCHOOL_TRUST_EN }}" />
+
+  {# OG #}
+  <meta property="og:title" content="{% if cms_page_title %}{{ cms_page_title }}{% else %}{{ SCHOOL_NAME_EN }}{% endif %}" />
+  <meta property="og:description" content="{% if cms_meta_desc %}{{ cms_meta_desc }}{% else %}{{ SCHOOL_TAGLINE_EN }}{% endif %}" />
+  <meta property="og:type" content="website" />
+
+  {# Favicon #}
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+
+  {# Google Fonts #}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Gujarati:wght@400;700&display=swap" rel="stylesheet" />
+
+  {# Tailwind compiled CSS #}
+  <link rel="stylesheet" href="{% static 'dist/output.css' %}" />
+
+  {# Swiper CSS (CDN) #}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  {# Sekizai CSS block #}
+  {% render_block "css" %}
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="min-h-screen flex flex-col">
+
+  {# ── Django CMS Toolbar ── #}
+  {% cms_toolbar %}
+
+  {# ── Global Interactive Om Particles ── #}
+  <div id="om-particles" class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden mix-blend-multiply"></div>
+
+  <div id="debug-marker" class="hidden">Rendering Body Start</div>
+
+  {# ── Header (Fully editable via plugins) ── #}
+  {% static_placeholder "header" %}
+
+  {# ── Django messages ── #}
+  {% if messages %}
+    <div class="fixed top-20 right-4 z-50 space-y-2" id="flash-messages">
+      {% for message in messages %}
+        <div class="px-5 py-3 rounded-lg shadow-lg text-white text-sm font-medium animate-slide-up
+          {% if 'error' in message.tags %}bg-red-600
+          {% elif 'success' in message.tags %}bg-green-600
+          {% else %}bg-saffron-600{% endif %}">
+          {{ message }}
+          <button onclick="this.parentElement.remove()" class="ml-3 opacity-70 hover:opacity-100">✕</button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {# ── Main Content ── #}
+  <main class="flex-1">
+    {% block content %}{% endblock %}
+  </main>
+
+  {# ── Footer (Fully editable via plugins) ── #}
+  {% static_placeholder "footer" %}
+
+
+  {# ── Lightbox ── #}
+  <div id="lightbox-overlay" class="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500">
+    <button id="lightbox-close" class="absolute top-8 right-8 text-white text-3xl hover:text-accent-500 transition-colors z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20">✕</button>
+    <button id="lightbox-prev" class="absolute left-4 md:left-8 text-white text-5xl hover:text-accent-500 transition-colors z-10 w-16 h-16 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 select-none">‹</button>
+    <button id="lightbox-next" class="absolute right-4 md:right-8 text-white text-5xl hover:text-accent-500 transition-colors z-10 w-16 h-16 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 select-none">›</button>
+    <div class="max-w-5xl w-full max-h-screen p-4 flex flex-col items-center">
+      <img id="lightbox-img" src="" alt="" class="max-h-[85vh] w-auto rounded-xl shadow-2xl object-contain drop-shadow-2xl" />
+      <p id="lightbox-caption" class="text-white/80 mt-6 text-center text-lg font-light tracking-wide"></p>
+    </div>
+  </div>
+
+  {# Scripts #}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  {% render_block "js" %}
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

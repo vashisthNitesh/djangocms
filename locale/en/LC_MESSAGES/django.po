@@ -1,0 +1,65 @@
+# English translations for Ambika Mahavidyalaya
+# Generated for django-cms bilingual project
+msgid ""
+msgstr ""
+"Project-Id-Version: Ambika Mahavidyalaya 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-09 00:00+0530\n"
+"PO-Revision-Date: 2026-04-09 00:00+0530\n"
+"Last-Translator: Admin\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "ગુજરાતી"
+msgstr "Gujarati"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "About Us"
+msgstr "About Us"
+
+msgid "Academics"
+msgstr "Academics"
+
+msgid "Admissions"
+msgstr "Admissions"
+
+msgid "Gallery"
+msgstr "Gallery"
+
+msgid "News & Events"
+msgstr "News & Events"
+
+msgid "Facilities"
+msgstr "Facilities"
+
+msgid "Contact Us"
+msgstr "Contact Us"
+
+msgid "Admissions Open"
+msgstr "Admissions Open"
+
+msgid "Apply Now"
+msgstr "Apply Now"
+
+msgid "Read More"
+msgstr "Read More"
+
+msgid "Send Message"
+msgstr "Send Message"
+
+msgid "Your full name / તમારું નામ"
+msgstr "Your full name"
+
+msgid "Mobile number / મોબાઈલ નંબર"
+msgstr "Mobile number"
+
+msgid "Subject / વિષય"
+msgstr "Subject"
+
+msgid "Your message / તમારો સંદેશ"
+msgstr "Your message"
