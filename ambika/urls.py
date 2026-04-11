@@ -12,9 +12,13 @@ from cms.sitemaps import CMSSitemap
 # i18n URL patterns
 from django.conf.urls.i18n import i18n_patterns
 
+from django.views.generic.base import RedirectView
+
 urlpatterns = [
     # Language switcher endpoint
     path("i18n/", include("django.conf.urls.i18n")),
+    # Root favicon redirect
+    path("favicon.ico", RedirectView.as_view(url=settings.STATIC_URL + "images/favicon.png", permanent=True)),
     # Admin (Standard location for CMS reliability)
     path("admin/", admin.site.urls),
 ]
