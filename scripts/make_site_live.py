@@ -49,6 +49,8 @@ def main():
         print(f"❌ Failed to publish version: {e}")
 
     print("--- Done ---")
+    print("\n👉 IMPORTANT: Please run 'python manage.py collectstatic --noinput --clear' now to update your icons!")
+    print("👉 Then restart your PythonAnywhere web app.")
 
 if __name__ == "__main__":
     main()
