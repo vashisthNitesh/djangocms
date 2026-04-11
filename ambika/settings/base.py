@@ -81,6 +81,10 @@ INSTALLED_APPS = [
 
     # Tailwind CLI (Node-free)
     "django_tailwind_cli",
+
+    # Cloudinary
+    "cloudinary_storage",
+    "cloudinary",
 ]
 
 # ─────────────────────────────────────────────
@@ -106,10 +110,10 @@ MIDDLEWARE = [
 # Security
 # ─────────────────────────────────────────────
 X_FRAME_OPTIONS = "SAMEORIGIN"
-CSRF_TRUSTED_ORIGINS = [
+CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[
     "http://localhost:8000",
     "http://127.0.0.1:8000",
-]
+])
 
 # Sekizai
 SEKIZAI_IGNORE_VALIDATION = True
@@ -233,7 +237,15 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL  = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = env("MEDIA_ROOT", default=str(BASE_DIR / "media"))
+
+# Cloudinary Storage Configuration
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": env("CLOUDINARY_CLOUD_NAME", default=""),
+    "API_KEY": env("CLOUDINARY_API_KEY", default=""),
+    "API_SECRET": env("CLOUDINARY_API_SECRET", default=""),
+}
 
 # ─────────────────────────────────────────────
 # Sites framework
