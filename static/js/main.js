@@ -227,32 +227,48 @@ const observer = new IntersectionObserver(
 revealElements.forEach((el) => observer.observe(el));
 
 // ─────────────────────────────────────────────
-// Interactive Om Particle Background
+// Interactive Om Particle Background - Minimal Prestige
 // ─────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("om-particles");
   if (container) {
-    const particleCount = 40;
-    // We mix some drifting animations
-    const animations = ["animate-drift-1", "animate-drift-2", "animate-drift-3", "animate-float-slow", "animate-float-slower"];
+    const particleCount = 20; // Reduced for less clutter
     
     for (let i = 0; i < particleCount; i++) {
       const om = document.createElement("div");
       om.textContent = "ॐ";
       
-      // Select a random drifting animation
-      const r_anim = animations[Math.floor(Math.random() * animations.length)];
+      const sizeClasses = ["text-3xl", "text-4xl", "text-6xl", "text-8xl"];
+      const r_size = sizeClasses[Math.floor(Math.random() * sizeClasses.length)];
       
-      // Base tailwind classes for an ultra-premium spiritual aesthetic
-      // Adding a slight blur that snaps into focus, a golden base color instead of grey, and a radiant glow on hover
-      om.className = `absolute text-2xl md:text-4xl font-serif text-accent-500/20 ${r_anim} pointer-events-auto transition-all duration-1000 ease-out hover:text-accent-400 hover:opacity-100 hover:scale-[2.5] hover:-translate-y-6 hover:-rotate-12 cursor-default select-none blur-[1px] hover:blur-none drop-shadow-sm hover:drop-shadow-[0_0_25px_rgba(245,158,11,0.8)] filter`;
+      // Extremely slow float, barely moving watermark effect
+      const duration = 80 + Math.random() * 40; 
+      const delay = -(Math.random() * 60); 
       
-      // Scatter them randomly across viewport dimensions (they'll drift from these starting spots)
+      // Absolute minimal opacity, NO crazy hovers
+      om.className = `absolute font-serif text-slate-800/5 select-none pointer-events-none ${r_size}`;
+      
       om.style.top = Math.random() * 100 + "%";
       om.style.left = Math.random() * 100 + "%";
-      om.style.animationDelay = (Math.random() * 15) + "s";
+      
+      om.style.animation = `prestigeFloatUp ${duration}s linear infinite`;
+      om.style.animationDelay = `${delay}s`;
       
       container.appendChild(om);
+    }
+
+    if (!document.getElementById("prestigeFloatUp-keyframes")) {
+      const style = document.createElement("style");
+      style.id = "prestigeFloatUp-keyframes";
+      style.innerHTML = `
+        @keyframes prestigeFloatUp {
+          0% { transform: translateY(50vh) rotate(0deg); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateY(-50vh) rotate(5deg); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
     }
   }
 });

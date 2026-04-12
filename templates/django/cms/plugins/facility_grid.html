@@ -2,14 +2,14 @@
 <section class="section-container">
   <div class="section-header">
     <span class="section-tag">Environment</span>
-    <h2 class="text-slate-900">{{ instance.title|default:"Campus Facilities" }}</h2>
-    <div class="w-20 h-1 bg-accent-500 mx-auto mt-6 rounded-full"></div>
+    <h2 class="text-slate-900 font-display italic">{{ instance.title|default:"Campus Facilities" }}</h2>
+    <div class="w-24 h-px bg-slate-300 mx-auto mt-6"></div>
     {% if instance.tagline %}
        <p class="text-slate-500 mt-6 max-w-2xl mx-auto">{{ instance.tagline|safe }}</p>
     {% endif %}
   </div>
   
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
     {% for plugin in instance.get_children %}
       {% render_plugin plugin %}
     {% endfor %}

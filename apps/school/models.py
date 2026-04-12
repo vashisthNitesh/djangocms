@@ -199,6 +199,7 @@ class AdmissionBannerPluginModel(CMSPlugin):
 
 class PremiumHeaderPluginModel(CMSPlugin):
     logo = models.ImageField(_("Logo"), upload_to="branding/", blank=True, null=True)
+    logo_text = models.CharField(_("Logo Text"), max_length=100, blank=True, default="Shri Ambika", help_text="Text displayed next to the logo.")
 
 class HeaderSlideModel(CMSPlugin):
     image    = models.ImageField(_("Background Image"), upload_to="hero/")

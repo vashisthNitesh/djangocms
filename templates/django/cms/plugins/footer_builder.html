@@ -1,11 +1,49 @@
-{% load cms_tags %}
-<footer class="footer mt-auto bg-slate-900">
-  <div class="max-w-7xl mx-auto w-full">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
-      {% for plugin in instance.get_children %}
-        {% render_plugin plugin %}
-      {% endfor %}
+<footer class="mt-auto relative bg-slate-900 py-16 lg:py-24 border-t border-slate-800 overflow-hidden">
+  {# Decorative Subtlety #}
+  <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-5 pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-evenly gap-12 bg-slate-800/40 rounded-[2.5rem] p-10 md:p-14 border border-slate-700 shadow-2xl relative overflow-hidden">
+      
+      {# Location #}
+      <div class="flex flex-col items-center text-center group cursor-default w-full md:w-1/3">
+        <div class="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent-600 group-hover:-translate-y-1 transition-all duration-500 border border-slate-700 group-hover:border-accent-500 shadow-lg">
+          <svg class="w-7 h-7 text-slate-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        </div>
+        <p class="text-white font-medium text-lg tracking-wide group-hover:text-amber-50 transition-colors">Ambaji, Banaskantha, Gujarat</p>
+      </div>
+
+      {# Divider #}
+      <div class="hidden md:block w-px h-32 bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
+      {# Mobile Divider #}
+      <div class="md:hidden w-32 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+      {# Phone #}
+      <div class="flex flex-col items-center text-center group w-full md:w-1/3">
+        <div class="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent-600 group-hover:-translate-y-1 transition-all duration-500 border border-slate-700 group-hover:border-accent-500 shadow-lg">
+          <svg class="w-7 h-7 text-slate-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+        </div>
+        <a href="tel:+919925368974" class="text-slate-300 font-medium text-lg tracking-widest hover:text-accent-400 transition-colors">+91 99253 68974</a>
+      </div>
+
+      {# Divider #}
+      <div class="hidden md:block w-px h-32 bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
+      {# Mobile Divider #}
+      <div class="md:hidden w-32 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+      {# Email #}
+      <div class="flex flex-col items-center text-center group w-full md:w-1/3">
+        <div class="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-accent-600 group-hover:-translate-y-1 transition-all duration-500 border border-slate-700 group-hover:border-accent-500 shadow-lg">
+          <svg class="w-7 h-7 text-slate-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        </div>
+        <a href="mailto:shriambika1@gmail.com" class="text-slate-300 font-medium text-lg tracking-wide hover:text-accent-400 transition-colors">shriambika1@gmail.com</a>
+      </div>
+
+    </div>
+    
+    {# Minimal Copyright #}
+    <div class="mt-12 text-center">
+      <p class="text-slate-600/80 text-sm font-medium tracking-wider uppercase">© {% now "Y" %} Shri Ambika Sanskrit Mahavidyalaya</p>
     </div>
   </div>
 </footer>
-

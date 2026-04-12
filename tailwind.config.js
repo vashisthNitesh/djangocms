@@ -10,34 +10,34 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        slate: { // Re-mapped to traditional warm/Parchment/Maroon theme
-          50: '#FDFCFB',
-          100: '#F9F6F0',
-          200: '#EFE7D6',
-          300: '#E1CFB1',
-          400: '#CDB185',
-          500: '#B8925A',
-          600: '#9C7446',
-          700: '#7D5135',
-          800: '#4A2A22',
-          900: '#2A1313', // Deep traditional maroon
+        slate: { // Oxford Navy Blue / Prestige Palette
+          50: '#F7F9FC', // Off-white, extremely clean
+          100: '#E8ECF2',
+          200: '#CDD5E1',
+          300: '#A3B4C9',
+          400: '#738BA9',
+          500: '#4D6B8C',
+          600: '#375373',
+          700: '#28415B',
+          800: '#1C2E42',
+          900: '#0F1A28', // Deep Oxford Blue
         },
-        accent: {
-          50: '#FFFBEB',
-          100: '#FEF3C7',
-          200: '#FDE68A',
-          300: '#FCD34D',
-          400: '#FBBF24',
-          500: '#F59E0B',
-          600: '#D97706',
-          700: '#B45309',
-          800: '#92400E',
-          900: '#78350F',
+        accent: { // Royal Gold / Saffron
+          50: '#FDFBF4',
+          100: '#FAF5DF',
+          200: '#F2E5B1',
+          300: '#E7CF7B',
+          400: '#DBB14B',
+          500: '#C98D26', // Perfect classic Royal Gold/Saffron
+          600: '#B06F1D',
+          700: '#8C521A',
+          800: '#704219',
+          900: '#5A3718',
         },
       },
       fontFamily: {
         'sans': ['"Inter"', '"Noto Sans Gujarati"', 'sans-serif'],
-        'display': ['"Outfit"', 'sans-serif'],
+        'display': ['"Lora"', '"Playfair Display"', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.8s ease-in-out',

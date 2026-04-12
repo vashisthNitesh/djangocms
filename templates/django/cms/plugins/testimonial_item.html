@@ -1,23 +1,33 @@
-<div class="swiper-slide h-full">
-  <div class="flex flex-col items-center text-center p-12 md:p-16 bg-white rounded-[3rem] shadow-sm hover:shadow-premium hover:-translate-y-2 transition-all duration-500 border border-slate-100 relative overflow-hidden group">
-    {# Watermark Quote #}
-    <div class="absolute -top-6 -left-6 text-[12rem] leading-none font-serif text-slate-50 opacity-50 group-hover:text-accent-50 group-hover:scale-110 transition-all duration-700 pointer-events-none select-none">"</div>
+<div class="swiper-slide h-full flex flex-col items-center justify-center">
+  <div class="max-w-3xl mx-auto px-6 text-center group">
     
-    <div class="w-24 h-24 rounded-full overflow-hidden mb-10 border-4 border-white shadow-xl relative z-10 group-hover:border-accent-100 transition-colors duration-500">
-      {% if instance.image %}
-        <img src="{{ instance.image.url }}" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700">
-      {% else %}
-        <div class="w-full h-full bg-slate-50 flex items-center justify-center text-3xl">👤</div>
-      {% endif %}
+    {# Large Royal Gold Quote Icon #}
+    <div class="mb-12 flex justify-center">
+       <svg class="w-16 h-16 text-accent-500 opacity-30 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700" fill="currentColor" viewBox="0 0 24 24">
+         <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+       </svg>
     </div>
-    
-    <p class="text-xl md:text-2xl text-slate-600 font-medium italic leading-relaxed mb-10 relative z-10 group-hover:text-slate-800 transition-colors">
-      "{{ instance.quote|safe }}"
+
+    {# The Quote - Large Serif #}
+    <p class="text-2xl md:text-4xl font-display font-medium text-slate-900 leading-[1.6] md:leading-[1.4] mb-12 italic tracking-tight">
+      {{ instance.quote|safe }}
     </p>
-    
-    <div class="relative z-10">
-      <h4 class="text-xl font-bold text-slate-900 mb-2">{{ instance.author|safe }}</h4>
-      <p class="text-accent-600 text-xs font-black uppercase tracking-[0.2em]">{{ instance.role|safe }}</p>
+
+    {# Signature Section #}
+    <div class="flex flex-col items-center gap-6">
+      <div class="w-20 h-20 rounded-full overflow-hidden border border-slate-100 shadow-sm p-1 bg-white">
+        {% if instance.image %}
+          <img src="{{ instance.image.url }}" class="w-full h-full object-cover rounded-full">
+        {% else %}
+          <div class="w-full h-full bg-slate-50 flex items-center justify-center text-3xl opacity-20 rounded-full">👤</div>
+        {% endif %}
+      </div>
+      
+      <div>
+        <h4 class="text-xl font-bold text-slate-900 mb-1 tracking-tight">{{ instance.author|safe }}</h4>
+        <p class="text-accent-600 text-xs font-black uppercase tracking-[0.25em]">{{ instance.role|safe }}</p>
+      </div>
     </div>
+
   </div>
 </div>

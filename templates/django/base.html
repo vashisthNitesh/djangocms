@@ -26,7 +26,7 @@
   {# Google Fonts #}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Gujarati:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Gujarati:wght@400;700&display=swap" rel="stylesheet" />
 
   {# Tailwind compiled CSS #}
   <link rel="stylesheet" href="{% static 'dist/output.css' %}" />
@@ -39,13 +39,13 @@
 
   {% block extra_head %}{% endblock %}
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col overflow-x-hidden bg-slate-50 selection:bg-accent-500 selection:text-white relative">
 
   {# ── Django CMS Toolbar ── #}
   {% cms_toolbar %}
 
   {# ── Global Interactive Om Particles ── #}
-  <div id="om-particles" class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden mix-blend-multiply"></div>
+  <div id="om-particles" class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden"></div>
 
   <div id="debug-marker" class="hidden">Rendering Body Start</div>
 

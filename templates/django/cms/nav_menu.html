@@ -1,5 +1,6 @@
 {% load menu_tags %}
 {% for child in children %}
+  {% if child.get_menu_title|lower != 'home' %}
     <div class="relative group">
         <a href="{{ child.get_absolute_url }}" 
            class="nav-link text-white hover:text-accent-500 font-medium tracking-wide transition-colors {% if child.selected %}text-accent-500{% endif %}">
@@ -17,4 +18,5 @@
             </div>
         {% endif %}
     </div>
+  {% endif %}
 {% endfor %}

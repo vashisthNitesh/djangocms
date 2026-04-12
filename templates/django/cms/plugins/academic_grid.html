@@ -1,14 +1,18 @@
 {% load cms_tags %}
-<section class="section-container">
-  <div class="section-header">
-    <span class="section-tag">Academics</span>
-    <h2 class="text-slate-900">{{ instance.title|default:"Our Academic Programs" }}</h2>
-    <div class="w-20 h-1 bg-accent-500 mx-auto mt-6 rounded-full"></div>
-  </div>
+<section class="section-container relative">
+  <div class="relative z-10">
+    <div class="section-header">
+      <span class="section-tag">Academic Excellence</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight font-display">
+        {{ instance.title|default:"Our Programs" }}
+      </h2>
+      <div class="w-24 h-1 bg-accent-500 mx-auto mt-8 rounded-full"></div>
+    </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    {% for plugin in instance.get_children %}
-      {% render_plugin plugin %}
-    {% endfor %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+      {% for plugin in instance.get_children %}
+        {% render_plugin plugin %}
+      {% endfor %}
+    </div>
   </div>
 </section>
