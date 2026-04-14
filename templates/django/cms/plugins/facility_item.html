@@ -1,23 +1,31 @@
-<div class="group bg-white p-8 rounded-[2.5rem] shadow-[0_12px_40px_rgba(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)] hover:border-accent-200 transition-all duration-700 flex flex-col h-full">
+<div class="group relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] hover:-translate-y-2 transition-all duration-700 flex flex-col h-full">
+  <!-- Subtle Gradient Accent Overlay (Top) -->
+  <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-accent-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
   {% if instance.image %}
-    <div class="w-full aspect-[4/3] rounded-3xl overflow-hidden mb-8 shadow-sm">
-      <img src="{{ instance.image.url }}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+    <div class="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
+      <img src="{{ instance.image.url }}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="{{ instance.title }}">
+      <!-- Elegant Overlay on Hover -->
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
     </div>
   {% else %}
-    <div class="w-16 h-16 bg-accent-50 rounded-2xl flex items-center justify-center text-3xl mb-8 border border-accent-100 group-hover:bg-accent-500 group-hover:text-white group-hover:-translate-y-1 transition-all duration-500">
-      {{ instance.icon_class|default:"🏫" }}
+    <div class="w-full aspect-[16/10] bg-slate-50 flex items-center justify-center border-b border-slate-100">
+      <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-4xl shadow-sm border border-slate-100 group-hover:bg-accent-500 group-hover:text-white group-hover:scale-110 transition-all duration-500">
+        {{ instance.icon_class|default:"🏫" }}
+      </div>
     </div>
   {% endif %}
   
-  <h3 class="text-xl md:text-2xl font-display font-medium text-slate-900 mb-4 group-hover:text-accent-600 transition-colors">
-    {{ instance.title|safe }}
-  </h3>
-  
-  <p class="text-slate-500 text-sm md:text-base leading-relaxed mb-6 flex-1">
-    {{ instance.description|safe }}
-  </p>
-  
-  <div class="pt-6 border-t border-slate-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-    <span class="text-xs font-black uppercase tracking-widest text-accent-600">Premium Facility</span>
+  <div class="p-8 flex flex-col flex-1">
+    <h3 class="text-2xl font-display font-semibold text-slate-900 mb-3 group-hover:text-accent-600 transition-colors duration-500">
+      {{ instance.title|safe }}
+    </h3>
+    
+    <div class="w-12 h-0.5 bg-accent-500/20 group-hover:w-20 group-hover:bg-accent-500 transition-all duration-700 mb-4"></div>
+    
+    <p class="text-slate-500 text-sm md:text-base leading-relaxed group-hover:text-slate-600 transition-colors duration-500 line-clamp-3">
+      {{ instance.description|safe }}
+    </p>
   </div>
 </div>
+
