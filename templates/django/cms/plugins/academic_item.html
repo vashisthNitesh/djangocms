@@ -1,33 +1,36 @@
-<div class="card-premium h-full group flex flex-col hover:bg-slate-50 transition-all duration-700">
+<div class="card-premium !p-8 h-full group flex flex-col hover:bg-slate-50 transition-all duration-700 relative overflow-hidden">
   <div class="flex-1">
-    {# Badge #}
-    <div class="mb-10 flex items-center justify-between">
-      <span class="px-5 py-2 rounded-full bg-accent-100 text-accent-700 text-xs font-black uppercase tracking-widest border border-accent-200">
+    {# Compact Badge Header #}
+    <div class="mb-6 flex items-center justify-between">
+      <span class="px-3 py-1 rounded-full bg-accent-50 text-accent-600 text-[10px] font-black uppercase tracking-[0.2em] border border-accent-100 shadow-sm">
         {{ instance.tag }}
       </span>
-      <div class="h-px bg-slate-200 flex-1 ml-6"></div>
+      <div class="h-px bg-slate-100 flex-1 ml-4"></div>
     </div>
 
-    {# Title #}
-    <h3 class="text-3xl md:text-4xl font-display font-medium text-slate-900 mb-8 group-hover:text-accent-600 transition-colors">
+    {# Refined Title #}
+    <h3 class="text-2xl font-display font-semibold text-slate-900 mb-5 group-hover:text-accent-600 transition-colors duration-500 tracking-tight">
       {{ instance.label }}
     </h3>
 
-    {# Subject List (Premium Structured Catalog Style) #}
-    <div class="space-y-4 mb-12">
+    {# Subject List (Compact & Structured) #}
+    <div class="space-y-3">
       {% if subjects %}
         {% for subject in subjects %}
-          <div class="flex items-start gap-4 group/item">
-            <svg class="w-5 h-5 mt-1 text-accent-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <circle cx="10" cy="10" r="3" />
-            </svg>
-            <span class="text-slate-600 group-hover/item:text-slate-900 transition-colors font-medium text-lg leading-relaxed">{{ subject }}</span>
+          <div class="flex items-start gap-3 group/item">
+            <div class="w-1.5 h-1.5 rounded-full bg-accent-500 mt-2 flex-shrink-0 group-hover/item:scale-125 transition-transform"></div>
+            <span class="text-slate-500 group-hover/item:text-slate-900 transition-colors font-medium text-base leading-snug">{{ subject }}</span>
           </div>
         {% endfor %}
       {% else %}
-        <p class="text-slate-400 font-medium italic">Standard Academic Curriculum</p>
+        <p class="text-slate-400 font-medium italic text-sm">Standard Academic Curriculum</p>
       {% endif %}
     </div>
   </div>
-
+  
+  {# Bottom Decorative Element #}
+  <div class="mt-8 pt-4 border-t border-slate-50 opacity-0 group-hover:opacity-100 transition-all duration-700 flex justify-end">
+    <span class="text-[9px] font-bold text-accent-500 uppercase tracking-widest italic font-display">Shri Ambika Excellence</span>
+  </div>
 </div>
+

@@ -1,18 +1,31 @@
 {% load cms_tags %}
-<section class="section-container relative">
+<section class="section-container relative overflow-hidden">
+  <!-- Decorative background accents -->
+  <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-500/5 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2"></div>
+  <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-slate-100/50 rounded-full blur-[100px] -z-10 -translate-x-1/2 translate-y-1/2"></div>
+
   <div class="relative z-10">
-    <div class="section-header">
-      <span class="section-tag">Academic Excellence</span>
-      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight font-display">
+    <div class="section-header mb-16 md:mb-24 text-center">
+      <span class="section-tag">
+        Academic Excellence
+      </span>
+      <h2 class="text-4xl md:text-5xl font-display text-slate-900 mb-6 font-semibold tracking-tight">
         {{ instance.title|default:"Our Programs" }}
       </h2>
-      <div class="w-24 h-1 bg-accent-500 mx-auto mt-8 rounded-full"></div>
+      <div class="flex items-center justify-center gap-4 mb-8">
+        <div class="w-12 h-px bg-accent-500/30"></div>
+        <div class="w-2 h-2 rounded-full bg-accent-500"></div>
+        <div class="w-12 h-px bg-accent-500/30"></div>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
       {% for plugin in instance.get_children %}
-        {% render_plugin plugin %}
+        <div class="h-full transform hover:scale-[1.02] transition-transform duration-500">
+          {% render_plugin plugin %}
+        </div>
       {% endfor %}
     </div>
   </div>
 </section>
+
